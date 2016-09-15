@@ -4,7 +4,7 @@ def getResults(args)
 
     return "Error" unless isTestCasesQuantityValid(lines)
 
-    for i in 1..lines.length - 1
+    for i in 1...lines.length
       line = lines[i]
       return "Error" unless isTestCaseValid(line)
 
@@ -48,9 +48,10 @@ def getTestCaseResult(testCase)
         friendsCount
 end
 
-input = "4\n4 11111\n1 09\n5 110011\n0 1"
+file = File.open("./A-small-practice.in", "r")
+contents = file.read
 
-results = getResults(input)
+results = getResults(contents)
 results.each_with_index do |result, i|
-  puts "Case ##{i}: #{result}"
+  puts "Case ##{i + 1}: #{result}"
 end
